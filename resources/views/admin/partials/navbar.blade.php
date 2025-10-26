@@ -5,17 +5,14 @@
     <form class="form-inline mr-auto searchform text-muted">
         <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search"
             placeholder="Type something..." aria-label="Search">
+
     </form>
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link text-muted my-2" href="#" id="langSwitcher" data-mode="light">
-                {{ LaravelLocalization::getCurrentLocale('') == 'ar' ? 'EN' : 'AR' }}
-            </a>
+            @include('admin.partials.language')
         </li>
         <li class="nav-item">
-            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
-                <i class="fe fe-sun fe-16"></i>
-            </a>
+            @include('admin.partials.colormode')
         </li>
         <li class="nav-item">
             <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-shortcut">

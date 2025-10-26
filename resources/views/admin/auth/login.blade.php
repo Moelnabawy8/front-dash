@@ -1,6 +1,7 @@
 @extends('admin.auth.master.app')
-@section('title', 'Admin Login')
+@section('title', __('keywords.Login'))
 @section('content')
+
     <div class="wrapper vh-100">
         <div class="row align-items-center h-100">
             <form method="POST" action="{{ route('admin.login') }}" class="col-lg-3 col-md-4 col-10 mx-auto text-center">
@@ -16,25 +17,25 @@
                         </g>
                     </svg>
                 </a>
-                <h1 class="h6 mb-3">Sign in</h1>
+                <h1 class="h6 mb-3">{{ __('keywords.Sign in') }}</h1>
                 <x-auth-session-status class="mb-4" :status="session('status')" />
                 <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control form-control-lg" placeholder="Email address"
-                        name="email" :value="old('email')">
+                    <label for="inputEmail" class="sr-only">__()</label>
+                    <input type="email" id="inputEmail" class="form-control form-control-lg"
+                        placeholder="{{ __('keywords.Email address') }}" name="email" :value="old('email')">
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" id="inputPassword" name="password" class="form-control form-control-lg"
-                        placeholder="Password">
+                        placeholder="{{ __('keywords.Password') }}">
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
                 <div name="remember" class="checkbox mb-3">
                     <label>
-                        <input type="checkbox" value="remember-me"> Stay logged in </label>
+                        <input type="checkbox" value="remember-me">{{ __('keywords.Stay logged in') }}</label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('keywords.Login') }}</button>
             </form>
         </div>
     </div>
