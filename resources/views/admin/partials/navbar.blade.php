@@ -38,8 +38,11 @@
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activities</a>
                 <form method="POST" action="{{ route('admin.logout') }}">
+
+                    @method('delete')
                     @csrf
                     <button type="submit" class="dropdown-item  text-dander">Logout</button>
+                </form>
             </div>
         </li>
     </ul>
