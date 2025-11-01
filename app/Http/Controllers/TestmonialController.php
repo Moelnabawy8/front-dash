@@ -3,64 +3,75 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testmonial;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreTestmonialRequest;
 use App\Http\Requests\UpdateTestmonialRequest;
 
+
+
 class TestmonialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    public const DIR = "admin.testmonials.";
+
     public function index()
     {
-        //
+        $testmonials = Testmonial::paginate(config('pagination.count'));
+        return view(self::DIR . "index", compact("testmonials"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view(self::DIR . "create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreTestmonialRequest $request)
     {
-        //
+        // dd($request->all());
+
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('testmonials', 'public');
+            $data['image'] = $imagePath;
+        }
+        Testmonial::create($data);
+
+
+        return redirect()->route("admin.testmonials.index")
+            ->with('Success', 'Testmonial created successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Testmonial $testmonial)
     {
-        //
+        return view("admin.testmonials.show", compact("testmonial"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Testmonial $testmonial)
     {
-        //
+        return view("admin.testmonials.edit", compact("testmonial"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateTestmonialRequest $request, Testmonial $testmonial)
     {
-        //
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($testmonial->image);
+            $imagePath = $request->file('image')->store('testmonials', 'public');
+            $data['image'] = $imagePath;
+        }
+        $testmonial->update($data);
+        return redirect()->route("admin.testmonials.index")
+            ->with('success', 'Testmonial updated successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Testmonial $testmonial)
     {
-        //
+        $testmonial->delete();
+
+        return redirect()->route("admin.testmonials.index")
+            ->with('Success', 'Testmonial deleted successfully!');
     }
 }

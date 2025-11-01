@@ -62,5 +62,21 @@ return [
     "Subscribers" => "المشتركون",
     "There Is No Subscribers" => "لا يوجد مشتركون",
     "Components" => "المكونات",
+    "Testmonials" => "الشهادات",
+    "There Is No Testmonials" => "لا توجد شهادات",
+    "Add_New_Testimonial" => "إضافة شهادة جديدة",
+    "Back_to_Testmonials" => "العودة إلى الشهادات",
+    "Show_Testmonial" => "عرض الشهادة",
+    "Enter_testmonial_title" => "أدخل عنوان الشهادة",
+    "Enter_testmonial_Description" => "أدخل وصف الشهادة",
+    "Enter_Testimonial_Position" => "أدخل منصب الشهادة",
+    "Enter_Testmonial_Name" => " ادخل اسم الشهادة",
+    "Edit_Testmonial" => "تعديل الشهادة",
+    "Update_Testmonial" => "تحديث الشهادة",
+    "Position" => "المنصب",
+    "image" => "الصورة",
+
+
+
 
 ];

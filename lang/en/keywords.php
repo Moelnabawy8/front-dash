@@ -61,6 +61,21 @@ return [
     "Components" => "Components",
     "Subscribers" => "Subscribers",
     "There Is No Subscribers" => "There Is No Subscribers",
+    "Testmonials" => "Testmonials",
+    "There Is No Testmonials" => "There Is No Testmonials",
+    "Add_New_Testimonial" => "Add New Testmonial",
+    "Back_to_Testmonials" => "Back to Testmonials",
+    "Enter_testmonial_title" => "Enter testmonial title",
+    "Enter_Testmonial_Name" => "Enter Testmonial Name",
+    "Enter_Testimonial_Position" => "Enter Testimonial Position",
+    "Enter_testmonial_Description" => "Enter Testmonial Description",
+    "Show_Testmonial" => "Show Testmonial",
+    "Edit_Testmonial" => "Edit Testmonial",
+    "Update_Testmonial" => "Update Testmonial",
+    "Position" => "Position",
+    "image" => "Image",
+
+
 
 
 ];

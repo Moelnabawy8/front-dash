@@ -1,6 +1,5 @@
 @extends('admin.master.app')
 @section('title', __('keywords.Show_Feature'))
-
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">

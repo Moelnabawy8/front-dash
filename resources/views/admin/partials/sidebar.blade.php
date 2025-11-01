@@ -38,6 +38,8 @@
                 icon=" fe fe-message-circle" />
             <x-sidebar-component href="{{ route('admin.subscribers.index') }}" title="{{ __('keywords.Subscribers') }}"
                 icon=" fe fe-users" />
+            <x-sidebar-component href="{{ route('admin.testmonials.index') }}"
+                title="{{ __('keywords.Testmonials') }}" icon=" fe fe-slack" />
 
         </ul>
 
