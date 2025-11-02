@@ -75,7 +75,17 @@ return [
     "Update_Testmonial" => "تحديث الشهادة",
     "Position" => "المنصب",
     "image" => "الصورة",
-
+    "Edit_Settings" => "تعديل الاعدادات",
+    "address" => "العنوان",
+    "twitter" => "تويتر",
+    "facebook" => "فيسبوك",
+    "instegram" =>  "انستجرام",
+    "youtube"  => "يوتيوب",
+    "linkedin" => "لينكد ان",
+    "email" => "البريد الالكتروني",
+    "phone" => "رقم الهاتف",
+    "Settings" => "الاعدادات",
+    "Update_Setting" => "تحديث الاعدادات",
 
 
 

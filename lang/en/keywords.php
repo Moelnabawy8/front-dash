@@ -74,7 +74,18 @@ return [
     "Update_Testmonial" => "Update Testmonial",
     "Position" => "Position",
     "image" => "Image",
-
+    "image" => "الصورة",
+    "Edit_Settings" => "Edit Setting ",
+    "address" => "Address",
+    "twitter" => "Twitter",
+    "facebook" => "Facebook",
+    "instegram" =>  "Instegram",
+    "youtube"  => "Youtube",
+    "linkedin" => "LinkedIn",
+    "email" => "Email",
+    "phone" => "Phone",
+    "Settings" => "Settings",
+    "Update_Setting" => "Update Settings",
 
 
 

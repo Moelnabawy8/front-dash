@@ -1,19 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestmonialController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
-Route::prefix("front")->group(function () {
-    Route::view('/home', 'themes.index')->name('home');
-    Route::view('/about', 'themes.about')->name('about');
-    Route::view('/contact', 'themes.contact')->name('contact');
-    Route::view('/service', 'themes.service')->name('service');
+Route::prefix("front")->controller(FrontController::class)->group(function () {
+    Route::get('/home', "index")->name('home');
+    Route::get('/about', "about")->name('about');
+    Route::get('/contact', "contact")->name('contact');
+    Route::get('/service', "service")->name('service');
 });
 
 Route::name("admin.")->prefix(LaravelLocalization::setLocale() . "/admin")
@@ -26,6 +28,7 @@ Route::name("admin.")->prefix(LaravelLocalization::setLocale() . "/admin")
             Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']);
             Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']);
             Route::resource('testmonials', TestmonialController::class);
+            Route::resource('settings', SettingController::class)->only(["index", "update"]);
         });
 
 
