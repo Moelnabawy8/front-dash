@@ -3,64 +3,71 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 
 class CompanyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public const DIR = "admin.companies.";
+
     public function index()
     {
-        //
+        $companies = Company::paginate(config('pagination.count'));
+        return view(self::DIR . "index", compact("companies"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view(self::DIR . "create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCompanyRequest $request)
     {
-        //
+
+
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('companies', 'public');
+            $data['image'] = $imagePath;
+        }
+        Company::create($data);
+
+
+        return redirect()->route("admin.companies.index")
+            ->with('Success', 'Company created successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Company $company)
     {
-        //
+        return view("admin.companies.show", compact("company"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Company $company)
     {
-        //
+        return view("admin.companies.edit", compact("company"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        //
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($company->image);
+            $imagePath = $request->file('image')->store('companies', 'public');
+            $data['image'] = $imagePath;
+        }
+        $company->update($data);
+        return redirect()->route("admin.companies.index")
+            ->with('success', 'Company updated successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Company $company)
     {
-        //
+        $company->delete();
+
+        return redirect()->route("admin.companies.index")
+            ->with('Success', 'Company deleted successfully!');
     }
 }

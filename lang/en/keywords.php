@@ -86,6 +86,10 @@ return [
     "phone" => "Phone",
     "Settings" => "Settings",
     "Update_Setting" => "Update Settings",
+    "Companies" => "Companies",
+    "Edit_Company" => "Edit Company",
+    "Back_to_Companies" => "Back To Companies",
+    "Update_Company" => "Update Company",
 
 
 

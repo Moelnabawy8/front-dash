@@ -86,6 +86,10 @@ return [
     "phone" => "رقم الهاتف",
     "Settings" => "الاعدادات",
     "Update_Setting" => "تحديث الاعدادات",
+    "Companies" => "الشركات",
+    "Edit_Company" => "تعديل شركة",
+    "Back_to_Companies" => "العودة الي الشركات",
+    "Update_Company" => "تحديث شركة",
 
 
 

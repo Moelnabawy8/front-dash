@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\FeatureController;
@@ -29,6 +30,7 @@ Route::name("admin.")->prefix(LaravelLocalization::setLocale() . "/admin")
             Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']);
             Route::resource('testmonials', TestmonialController::class);
             Route::resource('settings', SettingController::class)->only(["index", "update"]);
+            Route::resource('companies', CompanyController::class);
         });
 
 

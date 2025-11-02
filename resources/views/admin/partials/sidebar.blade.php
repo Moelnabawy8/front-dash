@@ -42,6 +42,8 @@
                 title="{{ __('keywords.Testmonials') }}" icon=" fe fe-slack" />
             <x-sidebar-component href="{{ route('admin.settings.index') }}" title="{{ __('keywords.Settings') }}"
                 icon=" fe fe-settings" />
+            <x-sidebar-component href="{{ route('admin.companies.index') }}" title="{{ __('keywords.Companies') }}"
+                icon=" fe fe-life-buoy" />
 
         </ul>
 
